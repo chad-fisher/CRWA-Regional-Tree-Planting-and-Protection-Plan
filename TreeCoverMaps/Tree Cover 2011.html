@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_1abe6334e2c61124fa795ad6e234e43c {
+                #map_634356c0dd37edb2550452735a4284d6 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -45,7 +45,7 @@
 <body>
     
     
-            <div class="folium-map" id="map_1abe6334e2c61124fa795ad6e234e43c" ></div>
+            <div class="folium-map" id="map_634356c0dd37edb2550452735a4284d6" ></div>
         
     
 <!doctype html>
@@ -140,8 +140,8 @@
 <script>
     
     
-            var map_1abe6334e2c61124fa795ad6e234e43c = L.map(
-                "map_1abe6334e2c61124fa795ad6e234e43c",
+            var map_634356c0dd37edb2550452735a4284d6 = L.map(
+                "map_634356c0dd37edb2550452735a4284d6",
                 {
                     center: [42.36565, -71.10832],
                     crs: L.CRS.EPSG3857,
@@ -165,18 +165,18 @@
 
         
     
-            var tile_layer_ce8e07ee2c887042c8ac62fcc4178264 = L.tileLayer(
+            var tile_layer_c69799069f665451cdcd24d0e5755a07 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
             );
         
     
-            tile_layer_ce8e07ee2c887042c8ac62fcc4178264.addTo(map_1abe6334e2c61124fa795ad6e234e43c);
+            tile_layer_c69799069f665451cdcd24d0e5755a07.addTo(map_634356c0dd37edb2550452735a4284d6);
         
     
             L.control.fullscreen(
                 {"forceSeparateButton": false, "position": "topleft", "title": "Full Screen", "titleCancel": "Exit Full Screen"}
-            ).addTo(map_1abe6334e2c61124fa795ad6e234e43c);
+            ).addTo(map_634356c0dd37edb2550452735a4284d6);
         
     
             var options = {
@@ -185,14 +185,14 @@
               edit: {},
             }
             // FeatureGroup is to store editable layers.
-            var drawnItems_draw_control_dcd974e2ca679daf17ef32e52c3d986a = new L.featureGroup().addTo(
-                map_1abe6334e2c61124fa795ad6e234e43c
+            var drawnItems_draw_control_bc34ebf696d38c4486dc0c30749487b7 = new L.featureGroup().addTo(
+                map_634356c0dd37edb2550452735a4284d6
             );
-            options.edit.featureGroup = drawnItems_draw_control_dcd974e2ca679daf17ef32e52c3d986a;
-            var draw_control_dcd974e2ca679daf17ef32e52c3d986a = new L.Control.Draw(
+            options.edit.featureGroup = drawnItems_draw_control_bc34ebf696d38c4486dc0c30749487b7;
+            var draw_control_bc34ebf696d38c4486dc0c30749487b7 = new L.Control.Draw(
                 options
-            ).addTo( map_1abe6334e2c61124fa795ad6e234e43c );
-            map_1abe6334e2c61124fa795ad6e234e43c.on(L.Draw.Event.CREATED, function(e) {
+            ).addTo( map_634356c0dd37edb2550452735a4284d6 );
+            map_634356c0dd37edb2550452735a4284d6.on(L.Draw.Event.CREATED, function(e) {
                 var layer = e.layer,
                     type = e.layerType;
                 var coords = JSON.stringify(layer.toGeoJSON());
@@ -200,10 +200,10 @@
                     alert(coords);
                     console.log(coords);
                 });
-                drawnItems_draw_control_dcd974e2ca679daf17ef32e52c3d986a.addLayer(layer);
+                drawnItems_draw_control_bc34ebf696d38c4486dc0c30749487b7.addLayer(layer);
              });
-            map_1abe6334e2c61124fa795ad6e234e43c.on('draw:created', function(e) {
-                drawnItems_draw_control_dcd974e2ca679daf17ef32e52c3d986a.addLayer(e.layer);
+            map_634356c0dd37edb2550452735a4284d6.on('draw:created', function(e) {
+                drawnItems_draw_control_bc34ebf696d38c4486dc0c30749487b7.addLayer(e.layer);
             });
             
         
@@ -211,24 +211,24 @@
             L.Control.geocoder(
                 {"collapsed": true, "defaultMarkGeocode": true, "position": "topleft"}
             ).on('markgeocode', function(e) {
-                map_1abe6334e2c61124fa795ad6e234e43c.setView(e.geocode.center, 11);
-            }).addTo(map_1abe6334e2c61124fa795ad6e234e43c);
+                map_634356c0dd37edb2550452735a4284d6.setView(e.geocode.center, 11);
+            }).addTo(map_634356c0dd37edb2550452735a4284d6);
 
         
     
-            map_1abe6334e2c61124fa795ad6e234e43c.fitBounds(
+            map_634356c0dd37edb2550452735a4284d6.fitBounds(
                 [[42.36565, -71.10832], [42.36565, -71.10832]],
                 {"maxZoom": 9}
             );
         
     
-            var tile_layer_d03c817c2e7a20247f18dd6e829cb6c5 = L.tileLayer(
-                "https://earthengine.googleapis.com/v1/projects/ee-cefisher20/maps/bdf57b2e8dc96e713d1566024ec91293-8d29d24c19885e6fee3b66410ee13edd/tiles/{z}/{x}/{y}",
+            var tile_layer_96c8b8cfb091cd822b4c2b0c0b4e2391 = L.tileLayer(
+                "https://earthengine.googleapis.com/v1/projects/ee-cefisher20/maps/bdf57b2e8dc96e713d1566024ec91293-92117fe04513465d61e532f9f2f3b9fc/tiles/{z}/{x}/{y}",
                 {"attribution": "Google Earth Engine", "detectRetina": false, "maxNativeZoom": 24, "maxZoom": 24, "minZoom": 0, "noWrap": false, "opacity": 1.0, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_d03c817c2e7a20247f18dd6e829cb6c5.addTo(map_1abe6334e2c61124fa795ad6e234e43c);
+            tile_layer_96c8b8cfb091cd822b4c2b0c0b4e2391.addTo(map_634356c0dd37edb2550452735a4284d6);
         
 </script>
 </html>
