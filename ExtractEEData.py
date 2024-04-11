@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 #Import packages
@@ -29,14 +29,14 @@ import geetools
 from geetools import batch
 
 
-# In[2]:
+# In[ ]:
 
 
 #Authenticate to Earth Engine
 ee.Authenticate()
 
 
-# In[3]:
+# In[ ]:
 
 
 #Initialize earth engine project
@@ -50,14 +50,14 @@ ee.Initialize(project='ee-cefisher20')
 cd '???????'
 
 
-# In[4]:
+# In[ ]:
 
 
 #HUC codes from https://apps.nationalmap.gov/viewer/
 Charles=ee.FeatureCollection("USGS/WBD/2017/HUC10").filter("huc10 == '0109000107' or huc10 == '0109000106'")
 
 
-# In[5]:
+# In[ ]:
 
 
 #Convert earth engine feature collections to geopandas data frames
@@ -68,14 +68,14 @@ Charles_gdf = ee.data.computeFeatures({
 Charles_gdf.crs = 'EPSG:4326'
 
 
-# In[6]:
+# In[ ]:
 
 
 def Charclip(image):
     return image.clip(Charles)
 
 
-# In[8]:
+# In[ ]:
 
 
 #Extract Sentinel 2 bands and indices of interest
@@ -84,7 +84,7 @@ def extractBandsIndices(image):
                          'NDVI','NBR','SAVI','RENDVI','EVI'])
 
 
-# In[9]:
+# In[ ]:
 
 
 #Resample Sentinel 2 bands to 10 m
@@ -99,7 +99,7 @@ def resample10m(image):
     return image.addBands([B5_res,B6_res,B7_res,B8A_res,B11_res,B12_res])
 
 
-# In[10]:
+# In[ ]:
 
 
 #Add 5 vegetation indices of interest
@@ -120,7 +120,7 @@ def addIndices(image):
     return image.addBands([NDVI,NBR,SAVI,RENDVI,EVI])
 
 
-# In[11]:
+# In[ ]:
 
 
 #Cloud mask function
@@ -136,7 +136,7 @@ def mask_s2_clouds(image):
     return image.updateMask(mask).divide(10000)
 
 
-# In[12]:
+# In[ ]:
 
 
 #Land cover mask function
@@ -145,47 +145,53 @@ def mask_forests(image):
     return image.updateMask(mask)
 
 
-# In[13]:
+# In[ ]:
 
 
 def preprocess(img):
   return extractBandsIndices(addIndices(resample10m(Charclip(img))))
 
 
-# In[14]:
+# In[ ]:
 
 
 #Pre-processing sentinel-2 data
 S2_All=ee.ImageCollection(("COPERNICUS/S2_SR_HARMONIZED")).filterDate('2019-01-01','2020-01-01').filterBounds(Charles.geometry()).filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 50)).map(preprocess)
 
 
-# In[15]:
+# In[ ]:
 
 
 S2_raw=ee.ImageCollection(("COPERNICUS/S2_SR_HARMONIZED")).filterDate('2019-01-01','2020-01-01').filterBounds(Charles.geometry()).filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 50))
 
 
-# In[16]:
+# In[ ]:
 
 
 def dateFormat(img):
   return ee.Image(img).date().format().split('T').get(0)
 
 
-# In[17]:
+# In[ ]:
 
 
 def mosaicBy(d):
   return ee.ImageCollection(("COPERNICUS/S2_SR_HARMONIZED")).filterBounds(Charles.geometry()).filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 50)).filterDate(d,ee.Date(d).advance(1,'day')).mosaic()
 
 
-# In[18]:
+# In[ ]:
 
 
 dates_list=ee.List(S2_raw.toList(S2_raw.size()).map(dateFormat)).distinct()
 
 
-# In[19]:
+# In[ ]:
+
+
+NLCD2019lc=ee.Image('USGS/NLCD_RELEASES/2019_REL/NLCD/2019').clip(Charles).select('landcover')
+
+
+# In[ ]:
 
 
 S2_fix=ee.ImageCollection(dates_list.map(mosaicBy)).map(mask_s2_clouds).map(preprocess)
@@ -201,11 +207,10 @@ Boston_gdf=towns[towns.index=='Boston city']
 Boston=geemap.geopandas_to_ee(Boston_gdf)
 
 
-# In[21]:
+# In[ ]:
 
 
 #Extract forest areas
-NLCD2019lc=ee.Image('USGS/NLCD_RELEASES/2019_REL/NLCD/2019').clip(Charles).select('landcover')
 d_forest=NLCD2019lc.updateMask(NLCD2019lc.eq(41)).select('landcover').clip(Boston)
 d_forest_vec=d_forest.reduceToVectors(geometry=Charles,crs=d_forest.projection())
 
@@ -229,7 +234,7 @@ for band in ['B2','B3','B4','B5_10m','B6_10m','B7_10m','B8','B8A_10m','B11_10m',
     for i in my_list.getInfo():
       j+=1
       print(j)
-      print(NDVI_Forest.size)
+      print(current_df.size)
       x = my_list.get(i)
       current_df=pd.concat([current_df,pd.DataFrame(data=current_IC.getRegion(ee.Feature(forest_list.get(x)).geometry(),10).getInfo()[1:],columns=current_IC.getRegion(ee.Feature(forest_list.get(x)).geometry(),10).getInfo()[0])])
     current_df.to_csv(band+'.csv')
