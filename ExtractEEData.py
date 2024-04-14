@@ -146,13 +146,11 @@ d_forest_gdf = ee.data.computeFeatures({
 d_forest_gdf.crs = 'EPSG:4326'
 forest_list=d_forest_vec.toList(10000)
 
-
-
 for band in ['B2','B3','B4','B5_10m','B6_10m','B7_10m','B8','B8A_10m','B11_10m','B12_10m',
                          'NDVI','NBR','SAVI','RENDVI','EVI']:
     current_IC=S2_for_export.select(band)
     current_df=pd.DataFrame(data=current_IC.getRegion(ee.Feature(forest_list.get(0)).geometry(),10).getInfo()[1:],columns=current_IC.getRegion(ee.Feature(forest_list.get(0)).geometry(),10).getInfo()[0])
-    for i in np.arange(1,168):
+    for i in np.arange(1,169):
       print(i)
       print(current_df.size)
       current_df=pd.concat([current_df,pd.DataFrame(data=current_IC.getRegion(ee.Feature(forest_list.get(int(i))).geometry(),10).getInfo()[1:],columns=current_IC.getRegion(ee.Feature(forest_list.get(int(i))).geometry(),10).getInfo()[0])])
