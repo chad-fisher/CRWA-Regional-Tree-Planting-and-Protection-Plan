@@ -1,5 +1,9 @@
 This repository contains work done for the Charles River Watershed Regional Tree Planting and Protection Plan.
 
-![Tree Cover Change (2005 - 2020) in the Charles River Watershed](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/e123d660-0ab5-4d37-9069-dc8b5fcb726d)
+![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/114adb2a-c017-47ce-93ee-b3f5de7a0d3a)
 
-![Drainage](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/763f1446-37bf-4a3b-93b6-fbe6defc239f)
+![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/0f0ec31b-02dc-4336-aebc-53cdd5c38025)
+
+![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/f5972fe1-801a-4e87-b3a1-930c5ad5151f)
+
+![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/6595f530-ed96-4892-a4ba-c7782a7d8b58)
