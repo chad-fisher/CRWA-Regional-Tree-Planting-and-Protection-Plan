@@ -1,13 +1,15 @@
 This repository contains work done for the Charles River Watershed Regional Tree Planting and Protection Plan.
 
-![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/114adb2a-c017-47ce-93ee-b3f5de7a0d3a)
+![CRWA Overview Map](https://github.com/user-attachments/assets/655cea01-1db7-46f2-bc20-2651808c95ff)
 
-![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/62361b0b-d5bf-4266-9412-4643e794bed2)
+![2021 TCC for publication](https://github.com/user-attachments/assets/e36c6d66-6cb7-4f88-b718-9cc41772a764)
 
-![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/0f0ec31b-02dc-4336-aebc-53cdd5c38025)
+![2021 Canopy graph for publication](https://github.com/user-attachments/assets/0f3669bb-8aac-472b-9c60-11c1a7827d29)
 
-![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/f5972fe1-801a-4e87-b3a1-930c5ad5151f)
+![dTCC for publication](https://github.com/user-attachments/assets/9bb6c9bc-d575-4049-aa6b-dc11b45b4b58)
 
-![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/6595f530-ed96-4892-a4ba-c7782a7d8b58)
+![dTCC graph for publication](https://github.com/user-attachments/assets/28809085-2f9d-4a69-94d3-36acc5b1aada)
 
-![image](https://github.com/chad-fisher/CRWA-Regional-Tree-Planting-and-Protection-Plan/assets/150188438/30344fd6-3c08-4ed9-a2c3-eed9ff1277c5)
+![Land Categories](https://github.com/user-attachments/assets/649932d1-c5c0-4884-b64c-800b08c5bf9a)
+
+![Hydric and Drainage for publication](https://github.com/user-attachments/assets/fedbbf5e-06f5-4633-99c9-8d821e608cf8)
